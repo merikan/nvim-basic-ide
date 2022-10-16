@@ -1,4 +1,5 @@
--- load theme
+print("ok. I am here")
+-- TODO does nor work !!!!
 vim.o.termguicolors = true
 vim.cmd [[
   colorscheme darcula 
@@ -6,5 +7,4 @@ vim.cmd [[
   hi DiffAdd guibg=#6A8759 ctermbg=101
   hi DiffChange guibg=#FFC66D ctermbg=216
   hi DiffDelete guibg=#9e2927 ctermbg=124
-
 ]]
