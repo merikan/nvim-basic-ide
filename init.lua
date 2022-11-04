@@ -23,8 +23,6 @@ require "user.core.globals"         -- load global functions
 require "user.core.options"         -- load my settings
 require "user.plugins"              -- install and configure plugins
 require "user.lsp"                  -- install and configure lsp
--- require "user.settings"       -- load my settings
--- require "user.keybindings"    -- load my keybindings
 require "user.core.keymaps"         -- load my keybindings
 require "user.core.autocommands"    -- register autocommands
 require "user.core.colorscheme"     -- set color scheme
