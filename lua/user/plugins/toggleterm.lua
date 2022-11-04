@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 20,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_terminals = true,
@@ -18,6 +17,13 @@ toggleterm.setup({
 	float_opts = {
 		border = "curved",
 	},
+  size = function(term)
+    if term.direction == 'horizontal' then
+      return 20
+    elseif term.direction == 'vertical' then
+      return math.floor(vim.o.columns * 0.40)
+    end
+  end,
 })
 require"toggleterm".setup {
   size = 13,
@@ -41,8 +47,13 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-
+-- gitui
+local gitui = Terminal:new({ cmd = "gitui", direction = "float", hidden = true })
+function _GITUI_TOGGLE()
+	gitui:toggle()
+end
+-- lazygit
+local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", hidden = true })
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end

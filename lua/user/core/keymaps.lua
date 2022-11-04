@@ -85,11 +85,11 @@ keymap("n", "<S-l>", ":bnext<CR>")
 keymap("n", "<S-h>", ":bprevious<CR>")
 keymap('n', '<C-tab>', ':bnext<CR>')
 keymap('n', '<C-S-tab>', ':bprevious<CR>')
--- window navigation
-keymap("n", "<C-h>", "<C-w>h")
-keymap("n", "<C-j>", "<C-w>j")
-keymap("n", "<C-k>", "<C-w>k")
-keymap("n", "<C-l>", "<C-w>l")
+-- window navigation (disbled since we are using tmux plugin)
+-- keymap("n", "<C-h>", "<C-w>h")
+-- keymap("n", "<C-j>", "<C-w>j")
+-- keymap("n", "<C-k>", "<C-w>k")
+-- keymap("n", "<C-l>", "<C-w>l")
 -- Terminal window navigation
 keymap('t', '<C-h>', '<C-\\><C-N><C-w>h')
 keymap('t', '<C-j>', '<C-\\><C-N><C-w>j')
@@ -107,11 +107,12 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
+keymap("n", "<leader>gui", "<cmd>lua _GITUI_TOGGLE()<CR>", opts)
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Comment
