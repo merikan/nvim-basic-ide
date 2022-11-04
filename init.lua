@@ -1,22 +1,30 @@
-require "user.plugins.impatient"
-require "user.core.options"
-require "user.core.keymaps"
-require "user.plugins"
-require "user.core.autocommands"
-require "user.core.colorscheme"
-require "user.plugins.cmp"
-require "user.plugins.telescope"
-require "user.plugins.gitsigns"
-require "user.plugins.treesitter"
-require "user.plugins.autopairs"
-require "user.plugins.comment"
-require "user.plugins.nvim-tree"
-require "user.plugins.bufferline"
-require "user.plugins.lualine"
-require "user.plugins.toggleterm"
-require "user.plugins.project"
-require "user.plugins.illuminate"
-require "user.plugins.indentline"
-require "user.plugins.alpha"
-require "user.lsp"
-require "user.plugins.dap"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--  my awesome neovim configuration
+--
+--    ███╗   ███╗███████╗██████╗ ██╗██╗  ██╗ █████╗ ███╗   ██╗
+--    ████╗ ████║██╔════╝██╔══██╗██║██║ ██╔╝██╔══██╗████╗  ██║
+--    ██╔████╔██║█████╗  ██████╔╝██║█████╔╝ ███████║██╔██╗ ██║
+--    ██║╚██╔╝██║██╔══╝  ██╔══██╗██║██╔═██╗ ██╔══██║██║╚██╗██║
+--    ██║ ╚═╝ ██║███████╗██║  ██║██║██║  ██╗██║  ██║██║ ╚████║
+--    ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+--
+--
+--  Peter Merikan
+--  github.com/merikan
+--  https://merikan.com
+--
+-- to reset all the shit
+-- $ rm -rf ~/.local/share/nvim && rm -rf ~/.config/nvim/plugin && rm -rf ~/.cache/nvim
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+require "user.plugins.impatient"    -- try to load impatient first
+require "user.core.globals"         -- load global functions
+require "user.core.options"         -- load my settings
+require "user.plugins"              -- install and configure plugins
+require "user.lsp"                  -- install and configure lsp
+-- require "user.settings"       -- load my settings
+-- require "user.keybindings"    -- load my keybindings
+require "user.core.keymaps"         -- load my keybindings
+require "user.core.autocommands"    -- register autocommands
+require "user.core.colorscheme"     -- set color scheme

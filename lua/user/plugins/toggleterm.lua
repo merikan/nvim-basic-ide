@@ -12,14 +12,23 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-	direction = "float",
+	direction = "horizontal",
 	close_on_exit = true,
-	shell = vim.o.shell,
+	-- shell = vim.o.shell,
 	float_opts = {
 		border = "curved",
 	},
 })
-
+require"toggleterm".setup {
+  size = 13,
+  open_mapping = [[<c-\>]],
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = '1',
+  start_in_insert = true,
+  persist_size = true,
+  direction = 'horizontal'
+}
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
