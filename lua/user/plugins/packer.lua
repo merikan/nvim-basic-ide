@@ -68,6 +68,7 @@ return packer.startup(function(use)
   use { "gruvbox-community/gruvbox"}
   use { "sainnhe/gruvbox-material"}
   use { "joshdick/onedark.vim"}
+  use { "kvrohit/rasmus.nvim" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin

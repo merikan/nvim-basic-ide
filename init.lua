@@ -20,6 +20,7 @@
 
 require "user.plugins.impatient"    -- try to load impatient first
 require "user.core.globals"         -- load global functions
+-- require "user.core.utils"
 require "user.core.options"         -- load my settings
 require "user.plugins"              -- install and configure plugins
 require "user.lsp"                  -- install and configure lsp
