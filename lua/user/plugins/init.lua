@@ -1,6 +1,7 @@
--- install plugins with packer require "user.plugins.packer" load plugins 
--- TODO load in packer instead, or?
+-- install plugins with packer
+require "user.plugins.packer"
 
+-- config plugins -- TODO load in packer instead, or?
 require "user.plugins.cmp"
 require "user.plugins.telescope"
 require "user.plugins.gitsigns"
