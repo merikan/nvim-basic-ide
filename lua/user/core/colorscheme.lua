@@ -1,5 +1,5 @@
 -- set colorscheme to use
-local colorscheme = "darcula"
+local colorscheme = "gruvbox-material"
 -- load color schemes custom settings if available
 ok, scheme = pcall(require, "user.colorschemes." .. colorscheme)
 if ok then
