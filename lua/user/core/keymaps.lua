@@ -42,8 +42,10 @@ keymap('v', '<leader>p', '"_dP')
 -- reselect pasted text
 keymap('n', 'gp', '[v`]')
 -- keep current line centered when jumping
-keymap('n', 'n', 'nzzzv')
-keymap('n', 'N', 'Nzzzv')
+keymap('n', 'n', 'nzzzv') -- next 
+keymap('n', 'N', 'Nzzzv') --  previous
+keymap('n', '<C-u>', '<C-u>zz') -- halfpage up
+keymap('n', '<C-d>', '<C-d>zz') -- halgpage down
 -- keep cursor in position when joining
 keymap('n', 'J', 'mzJ`z')
 keymap('v', 'J', 'mzJ`z')
