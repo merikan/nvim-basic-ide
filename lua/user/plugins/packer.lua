@@ -114,6 +114,7 @@ return packer.startup(function(use)
 
   -- Other
   use { "nvim-lualine/lualine.nvim", commit = "a52f078026b27694d2290e34efa61a6e4a690621" }
+  -- use { "szw/vim-maximizer" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
