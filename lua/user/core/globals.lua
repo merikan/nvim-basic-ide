@@ -73,12 +73,3 @@ _G.icnoremap = function(lhs, rhs, opts, bufnr)
   keymapper('!', lhs, rhs, opts, bufnr)
 end
 
--- toggle two windows between vertical and horizontal splits
-_G.rotate_windows = function()
-  buffers_list = nv.exec('buffers', true)
-  for match in buffers_list:gmatch '.*\n' do
-    -- TODO: extract the buffer info 'a' for all active buffers and save it
-    print(match)
-  end
-end
-
