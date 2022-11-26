@@ -4,7 +4,6 @@ local servers = {
   "bashls",
   "cmake",
   'cssls',
-  "dartls",
   "diagnosticls", -- Diagnostic (general purpose server)
   "dockerls",
   "eslint",
