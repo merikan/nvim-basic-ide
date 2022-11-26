@@ -1,3 +1,4 @@
+-- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local servers = {
   "ansiblels",
   "angularls",
@@ -55,6 +56,8 @@ end
 local opts = {}
 
 -- 
+table.insert(servers, "dartls")
+
 for _, server in pairs(servers) do
   -- if server ~= 'jdtls' then goto continue end
 
