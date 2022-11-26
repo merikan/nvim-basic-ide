@@ -58,8 +58,17 @@ return packer.startup(function(use)
   use { "ahmedkhalf/project.nvim" }
   use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  use { "goolord/alpha-nvim" }
 
+  -- ==============
+  -- look and feel
+  -- ==============
+  use {
+    "goolord/alpha-nvim", -- a nvim dashboard
+    requires = { "kyazdani42/nvim-web-devicons" },
+    -- config = function()
+    --   require "user.plugins.alpha"
+    -- end,
+  }
   -- Colorschemes , use colorscheme.lua to load a scheme
   use { "folke/tokyonight.nvim" }
   use { "lunarvim/darkplus.nvim" }
