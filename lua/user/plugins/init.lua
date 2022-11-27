@@ -25,13 +25,13 @@ end
 -- install plugins with packer
 require "user.plugins.packer"
 
--- config plugins -- TODO load in packer instead, or?
+-- config plugins 
 require "user.plugins.cmp"
 require "user.plugins.telescope"
 require "user.plugins.gitsigns"
-require "user.plugins.treesitter"
+-- require "user.plugins.treesitter"
 require "user.plugins.autopairs"
-require "user.plugins.comment"
+-- require "user.plugins.comment"
 require "user.plugins.nvim-tree"
 require "user.plugins.bufferline"
 require "user.plugins.lualine"
