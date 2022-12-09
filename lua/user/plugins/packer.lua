@@ -90,11 +90,11 @@ return packer.startup(function(use)
   use { "lukas-reineke/indent-blankline.nvim" }         -- indent blank lines too
   
   -- Colorschemes > use "colorscheme.lua" to activate a scheme
-  use { "chriskempson/base16-vim" }
+  use { "doums/darcula" }
+  use { "RRethy/nvim-base16"}
   use { "gruvbox-community/gruvbox" }
   use { "folke/tokyonight.nvim" }
   use { "lunarvim/darkplus.nvim" }
-  use { "doums/darcula" }
   use { "sainnhe/gruvbox-material" }
   use { "joshdick/onedark.vim" }
   use { "kvrohit/rasmus.nvim" }
