@@ -15,8 +15,10 @@ keymap('i', 'hh', '<ESC>')
 -- toggle cursorline and cursorcolumn
 keymap('n', '<Leader>tc',':set cursorline! cursorcolumn!<CR>')
 -- Alternate way to save
+keymap('i', '<C-s>', '<ESC>:w<CR>a')
 keymap('n', '<C-s>', ':w<CR>')
 -- Alternate way to quit
+keymap('i', '<C-Q>', '<ESC>:q!<CR>')
 keymap('n', '<C-Q>', ':q!<CR>')
 
 -- clear highlightning with C-l or double Esc
@@ -27,10 +29,6 @@ keymap('n', '<esc>', ':noh<CR>')
 keymap('i', 'hh', '<ESC>')
 -- toggle cursorline and cursorcolumn
 keymap('n', '<Leader>tc',':set cursorline! cursorcolumn!<CR>')
--- Alternate way to save
-keymap('n', '<C-s>', ':w<CR>')
--- Alternate way to quit
-keymap('n', '<C-Q>', ':q!<CR>')
 
 -- make Y behave like C and D
 keymap('n', 'Y', 'y$')
