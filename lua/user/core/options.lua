@@ -44,16 +44,14 @@ o.whichwrap:append("<,>,[,],h,l")         -- keys allowed to move to the previou
 o.iskeyword:append("-")                   -- treats words with `-` as single words
 
 o.conceallevel = 0                        -- so that `` is visible in markdown files
-o.list      = true
-o.listchars = {
-    trail    = "•",
-    -- eol      = "↴",
-    tab      = "» ",
-    extends  = "❯",
-    precedes = "❮",
-    nbsp     = "_",
-    space    = " ",
-}
+o.list = true                             -- :set list, :set nolist
+o.listchars:append  "trail:•"
+o.listchars:append  "eol:↴"
+o.listchars:append  "tab:» "
+o.listchars:append  "extends:❯"
+o.listchars:append  "precedes:❮"
+o.listchars:append  "nbsp:_"
+o.listchars:append  "space:."
 
 --------------------------------------------------------------------------------
 -- Search and Complelete
