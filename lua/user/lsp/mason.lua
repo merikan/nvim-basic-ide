@@ -56,10 +56,10 @@ end
 local opts = {}
 
 -- 
-table.insert(servers, "dartls")
+table.insert(servers, "dartls") -- add dartls since it installed via dart sdk
 
 for _, server in pairs(servers) do
-  -- if server ~= 'jdtls' then goto continue end
+  if server ~= 'jdtls' then goto continue end --we will configure jdtls in ftplugin
 
   opts = {
     on_attach = require("user.lsp.handlers").on_attach,

@@ -6,46 +6,43 @@ if not ok then
   return
 end
 
+
 local root_markers = { ".git", "mvnw", "gradlew" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 if root_dir == "" then
-  print "no root_dir found"
+  vim.notify  "nvim-jtls: no root_dir found"
   return
 end
 
-local nvim_local_dir = vim.fn.expand('~/.local/share/nvim')
+local util = require "lspconfig.util"
+local jdtls_package_dir = require("mason-registry").get_package("jdtls"):get_install_path()
+local jdtls_bin = util.path.join(jdtls_package_dir, "bin", "jdtls") -- wrapper script
+
+local share_dir = vim.env.XDG_CACHE_HOME or util.path.join(vim.env.HOME, ".local/share")
+local cache_dir = vim.env.XDG_CACHE_HOME or util.path.join(vim.env.HOME, ".cache")
+
+local jdtls_cache_dir = util.path.join(cache_dir, "jdtls")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = nvim_local_dir .. '/jdtls-workspaces/' .. project_name
-local mason_packages_dir = os.getenv("HOME") .. "/.local/share/nvim/mason/packages"
-local jdtls_package_dir = mason_packages_dir .. "/jdtls"
+local workspace_dir = util.path.join(jdtls_cache_dir, "workspace", project_name)
+local lombok_jar = util.path.join(jdtls_package_dir, "lombok.jar")
 
--- lombok , we will for now use the version bundled with mason
-local lombok_jar = jdtls_package_dir .. "/lombok.jar"
+-- add bundles installed w/ Mason
+-- jdtls_bundles = {}
+--   vim.fn.glob(mason_packages .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1, 1)
+--   vim.list_extend(jdtls_bundles, vim.fn.glob(mason_packages .. "/java-test/extension/server/*[0123456789].jar", 1, 1))
+-- end
 
-if vim.fn.has "mac" == 1 then
-  CONFIG = "mac"
-elseif vim.fn.has "unix" == 1 then
-  CONFIG = "linux"
-else
-  print "Unsupported system"
-end
+
+vim.notify("project_name=" .. project_name )
+vim.notify("workspace_dir=" .. workspace_dir )
 
 local config = {
+  -- The command that starts the language server
+  -- NOTICE: I am using the python wrapper
+  -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
-
-    'java',
-    '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-    '-Dosgi.bundles.defaultStartLevel=4',
-    '-Declipse.product=org.eclipse.jdt.ls.core.product',
-    '-Dlog.protocol=true',
-    '-Dlog.level=ALL',
-    '-Xms1g',
-    '--add-modules=ALL-SYSTEM',
-    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-javaagent:' .. lombok_jar,
-    '-jar', nvim_local_dir .. '/lsp_servers/jdtls/plugins/org.eclipse.equinox.launcher_*.jar',
-    '-configuration', nvim_local_dir .. '/lsp_servers/jdtls/config_' .. CONFIG,
+    jdtls_bin,
+    '--jvm-arg=-javaagent:' .. lombok_jar,
     '-data', workspace_dir
   },
   root_dir = root_dir,
